@@ -23,9 +23,9 @@ _node = {
       "name":""
     }
 _result = { "nodes": [] }
-_id = 1
 
 def main():
+  _id = 1
   _tupples = [ line.split() for line in fileinput.input() ]
   for _tup in _tupples:
     _ipmi = _tup[0].strip()
@@ -35,6 +35,7 @@ def main():
     _cur_node["pm_addr"] = _ipmi
     _cur_node["name"] = "miko" + str(_id)
     _result["nodes"].append(_cur_node)
+    _id += 1
   print json.dumps(_result, indent=2)
 
 if __name__ == "__main__":
